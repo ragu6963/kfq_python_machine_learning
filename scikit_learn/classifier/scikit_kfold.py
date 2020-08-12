@@ -10,8 +10,6 @@ from sklearn.model_selection import StratifiedKFold
 
 # %%
 iris = load_iris()
-
-# %%
 features = iris.data
 label = iris.target
 # %%
@@ -19,10 +17,6 @@ df_clf = DecisionTreeClassifier(random_state=156)
 
 # %%
 # shuffle = True, index 섞임(default = False)
-# %%
-
-
-# %%
 kfold = KFold(n_splits=5, shuffle=True)
 skf = StratifiedKFold(n_splits=5)
 cv_accuracy = []

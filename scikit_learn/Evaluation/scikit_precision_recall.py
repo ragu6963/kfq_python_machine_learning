@@ -92,7 +92,7 @@ def get_eval_by_threshold(y_test, pred_proba_c1, thresholds):
         get_clf_eval(y_test, custom_predict, pred_proba[:, 1])
 
 
-# get_eval_by_threshold(y_test, pred_proba[:, 1].reshape(-1, 1), thresholds)
+get_eval_by_threshold(y_test, pred_proba[:, 1].reshape(-1, 1), thresholds)
 
 
 # %%

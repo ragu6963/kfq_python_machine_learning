@@ -5,8 +5,8 @@
 """
 # %%
 from sklearn.base import BaseEstimator
-import numpy as np
 from sklearn import preprocessing
+import numpy as np
 
 # %%
 class MyDummyClassifier(BaseEstimator):
@@ -37,17 +37,26 @@ def fillna(df):
 
 
 # %%
-# 불필요 속성(name,id,ticket) 제거
-def drop_features(df):
-    # df.drop(["PassengerId", "Name", "Ticket"], axis=1, inplace=True)
-    df.drop(["PassengerId", "Name", "Ticket", "Fare"], axis=1, inplace=True)
+from sklearn import preprocessing
+
+# 결측값 처리
+def fillna(df):
+    df["Age"].fillna(df["Age"].mean(), inplace=True)
+    df["Cabin"].fillna("N", inplace=True)
+    df["Embarked"].fillna("N", inplace=True)
+    df["Fare"].fillna(0, inplace=True)
     return df
 
 
-# %%
+# 불필요 속성(name,id,ticket) 제거
+def drop_features(df):
+    df.drop(["PassengerId", "Name", "Ticket"], axis=1, inplace=True)
+    return df
+
+
 # 레이블 인코딩
 def encode_features(df):
-    titanic_df["Cabin"] = titanic_df["Cabin"].str[:1]
+    df["Cabin"] = df["Cabin"].str[:1]
     features = ["Cabin", "Sex", "Embarked"]
     for feature in features:
         le = preprocessing.LabelEncoder()
@@ -56,7 +65,6 @@ def encode_features(df):
     return df
 
 
-# %%
 # 함수 모두 호출
 def transform_features(df):
     df = fillna(df)
