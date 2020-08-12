@@ -127,8 +127,15 @@ pima_indians_df.info()
 pima_indians_df.describe()
 
 # %%
-y_pima_indians_df = pima_indians_df["Outcome"]
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+
 x_pima_indians_df = pima_indians_df.drop("Outcome", axis=1)
+y_pima_indians_df = pima_indians_df["Outcome"]
+
+scaler = MinMaxScaler()
+scaler.fit(x_pima_indians_df)
+x_pima_indians_df = scaler.transform(x_pima_indians_df)
 
 from sklearn.model_selection import train_test_split
 
@@ -139,9 +146,9 @@ x_train, x_test, y_train, y_test = train_test_split(
     random_state=156,
     stratify=y_pima_indians_df,
 )
-
-
 # %%
+
+
 # 로지스틱 회긔 예측 모델
 from sklearn.linear_model import LogisticRegression
 
