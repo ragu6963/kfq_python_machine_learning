@@ -7,12 +7,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+human_activity/
 build/
 develop-eggs/
 dist/
