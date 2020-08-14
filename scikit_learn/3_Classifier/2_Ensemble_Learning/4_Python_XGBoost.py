@@ -1,3 +1,6 @@
+"""
+파이썬 XGBoost
+"""
 # %%
 # 오차행렬, 정확도, 정밀도, 재현율, F1 스코어, ROC AUC 출력
 from sklearn.metrics import (

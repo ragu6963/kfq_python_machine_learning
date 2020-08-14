@@ -156,7 +156,6 @@ get_clf_eval(y_test, custom_predict)
 
 # %%
 # precision_recall_curve 를 사용한 조절
-# API 이용
 from sklearn.metrics import precision_recall_curve
 
 pred_proba_class1 = lr_clf.predict_proba(x_test)[:, 1]
@@ -175,7 +174,6 @@ print(f"샘플 임계값별 재현율 : {np.round(recalls[thr_index],3)}")
 # %%
 # 정밀도 재현율 시각화
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 
 
 def precision_recall_curve_plot(y_test, pred_proba_c1):
@@ -210,7 +208,6 @@ precision_recall_curve_plot(y_test, pred_proba_class1)
 # ROC 곡선 시각화
 from sklearn.metrics import roc_curve
 
-
 def roc_curve_plot(y_test, pred_proba_c1):
     # 임계값에 따른 FPR, TPR 값
     fprs, tprs, _ = roc_curve(y_test, pred_proba_c1)
@@ -227,7 +224,6 @@ def roc_curve_plot(y_test, pred_proba_c1):
     plt.legend()
     plt.grid()
     plt.show()
-
 
 roc_curve_plot(y_test, pred_proba[:, 1])
 
