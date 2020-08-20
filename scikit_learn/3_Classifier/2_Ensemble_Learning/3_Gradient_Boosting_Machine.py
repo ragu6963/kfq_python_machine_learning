@@ -80,3 +80,5 @@ print(f"GBM 수행 시간 : {end_time - start_time }")
 
 
 # %%
+
+# %%

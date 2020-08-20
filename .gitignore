@@ -141,3 +141,4 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+scikit_learn/4_Regression/10_House_Prices/data_description.txt

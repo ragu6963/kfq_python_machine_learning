@@ -169,3 +169,5 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(10, 12))
 plot_importance(xgb_model, ax=ax)
+
+# %%
