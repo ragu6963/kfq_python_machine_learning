@@ -462,19 +462,21 @@ xgb_train, xgb_test = get_stacking_base_datasets(
 lgbm_train, lgbm_test = get_stacking_base_datasets(
     lgbm_reg, X_train_n, y_train_n, X_test_n, 5
 )
-
+#%%
+# 
 Stack_final_X_train = np.concatenate(
     (ridge_train, lasso_train, xgb_train, lgbm_train), axis=1
 )
 Stack_final_X_test = np.concatenate(
     (ridge_test, lasso_test, xgb_test, lgbm_test), axis=1
 )
-
+#%%
 meta_model_lasso = Lasso(alpha=0.0005)
 
 meta_model_lasso.fit(Stack_final_X_train, y_train)
 final = meta_model_lasso.predict(Stack_final_X_test)
 mse = mean_squared_error(y_test, final)
 rmse = np.sqrt(mse)
-print('스태킹 회귀 모델의 최종 RMSE 값은:', rmse)
+print("스태킹 회귀 모델의 최종 RMSE 값은:", rmse)
 # %%
+
